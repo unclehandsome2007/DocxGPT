@@ -19,25 +19,28 @@
 		<h1 id="index_title">DocxGPT</h1>
 		<p>一款利用人工智慧生成文件的工具</p>
 		<br>
-		<h4>請選擇想產生的文件類型</h4>
+		
 	</header>
 
-	<!-- Signup Form -->
-	<select id="doc_type">
-		<option selected value="null">文章類型</option>
-		<option value="1">公告產生</option>
-		<option value="2">閱讀心得</option>
-		<option value="3">心得感想</option>
-	</select>
-	<br>
-	<form id="signup-form" id="doc_type">
-		<input type="password" placeholder="請輸入兌換代碼" id="exchange_code">
-		<input id='create' type="submit" value="下一步">
-	</form>
+	<div id="login-form">
+		<h4>請選擇想產生的文件類型</h4>
+		<select id="doc_type">
+			<option selected value="null">文章類型</option>
+			<option value="1">公告產生</option>
+			<option value="2">閱讀心得</option>
+			<option value="3">心得感想</option>
+		</select>
+		<br><br>
+		<form id="signup-form" id="doc_type">
+			<input type="password" placeholder="請輸入兌換代碼" id="exchange_code">
+			<input id='create' type="submit" value="下一步">
+		</form>
+	</div>
+	
 	<!-- Footer -->
 	<footer id="footer">
 		<ul class="icons">
-			<li><a href="https://github.com/unclehandsome2007" class="icon brands fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+			<li><a href="https://github.com/unclehandsome2007/DocxGPT" class="icon brands fa-github" target="_blank"><span class="label">GitHub</span></a></li>
 			<li><a href="mailto:11130216@sssh.tp.edu.tw" class="icon fa-envelope"><span class="label">Email</span></a>
 			</li>
 		</ul>
