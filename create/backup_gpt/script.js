@@ -1,6 +1,4 @@
 const result = document.getElementById(result);
- const OPENAI_API_KEY = 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; API過期
-const OPENAI_API_KEY = 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;
 
 function check() {
   const doc_type = $('#doc_type').val();
