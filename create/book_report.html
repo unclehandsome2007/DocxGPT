@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+
+<head>
+	<link rel="icon" href="images/logo.png" />
+	<title>DocxGPT - 一款利用人工智慧生成文件的工具</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+
+<body class="is-preload">
+	<div id="loading_div" style="position: fixed;z-index: 999;"></div>
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<!-- Logo -->
+			<div id="index_logo">
+				<img id="index_logo_img" src="images/logo.png" alt="">
+			</div>
+			<h1 id="index_title">DocxGPT</h1>
+		</header>
+
+		<!-- Main -->
+		<h3>請分別輸入: 學校名稱|年級|班級|科別|姓名</h3>
+		<input value="臺北市立松山高級中學|一年級|一年六班|普通科|大帥哥" placeholder="範例: 臺北市立松山高級中學|一年級|一年六班|普通科|大帥哥" type="text" id="user_info">
+		<br>
+		<h3>請分別輸入: 參賽標題|書籍ISBN|中文書名|書籍作者|出版單位|出版年月|版次</h3>
+		<input value="不放手，直到夢想到手|9789863204060|堅持夢想的大導演李安|譚立安|遠見天下文化|2014年3月25日|初版" placeholder="範例: 不放手，直到夢想到手|9789863204060|堅持夢想的大導演李安|譚立安|遠見天下文化|2014年3月25日|初版" type="text" id="book_info">
+		<br>
+		<h3>書本大概內容</h3>
+		<textarea placeholder="可直接貼網路上內容" id="book_intr">效法揚名世界的奧斯卡大導演，不輕言放棄夢想，走出屬於自己與眾不同的一條路。二○一三年二月二十四日，在美國洛杉磯舉行的第八十五屆奧斯卡金像獎頒獎典禮，臺灣之光——李安以《少年Pi的奇幻漂流》二度獲頒最佳導演獎。他不僅是第一位獲頒這個獎項的亞洲導演，也是第一位兩次獲獎的亞洲導演。自小體弱多病的李安，歷經世界末日般的兩度大學聯考落榜、近乎家庭革命的立定志向、畢業後失業長達六年等阻礙，仍不屈不撓的堅持電影夢，深信自己能拓展出一條路。如今他已然成為一位一次又一次超越自己的傳奇導演，他的故事就像他的電影一樣啟發人心。從挫折到成功，李安在艱難時表現出來的堅毅不撓、在成功時不改平易謙沖的態度，是所有追夢者的最佳典範。</textarea>
+		<br>
+		<button id="check_btn" onclick="check()">產生</button>
+		<br><br>
+		<h4 id="token_num">代幣剩餘次數: 讀取中...(一次扣6點)</h4>
+		<textarea id="result" placeholder="開發者預覽"></textarea>
+	</div>
+	<!-- Scripts -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="https://unpkg.com/docx@8.0.1/build/index.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<!-- Import the associated firebase lib which the order is fixed. -->
+	<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-storage.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-database.js"></script>
+	<!-- Set the firebsae config and initialize it. -->
+	<script src="../assets/js/init-firebase.js"></script>
+	<script src="../assets/js/firebase.js"></script>
+	<script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+	<script src="assets/js/script.js"></script>
+	<script src="assets/js/script_book_report.js"></script>
+</body>
+<!--                              _..._                                                                                              .-'''-.                                         
+                          .-'_..._''. .---.                                                                _______             '   _    \                                       
+              _..._     .' .'      '.\|   |      __.....__                  .                      _..._   \  ___ `'.        /   /` '.   \  __  __   ___         __.....__      
+            .'     '.  / .'           |   |  .-''         '.              .'|                    .'     '.  ' |--.\  \      .   |     \  ' |  |/  `.'   `.   .-''         '.    
+           .   .-.   .. '             |   | /     .-''"'-.  `.           <  |                   .   .-.   . | |    \  '     |   '      |  '|   .-.  .-.   ' /     .-''"'-.  `.  
+           |  '   '  || |             |   |/     /________\   \           | |             __    |  '   '  | | |     |  '    \    \     / / |  |  |  |  |  |/     /________\   \ 
+   _    _  |  |   |  || |             |   ||                  |           | | .'''-.   .:--.'.  |  |   |  | | |     |  |    _`.   ` ..' /  |  |  |  |  |  ||                  | 
+  | '  / | |  |   |  |. '             |   |\    .-------------'           | |/.'''. \ / |   \ | |  |   |  | | |     ' .'  .' |  '-...-'`   |  |  |  |  |  |\    .-------------' 
+ .' | .' | |  |   |  | \ '.          .|   | \    '-.____...---.           |  /    | | `" __ | | |  |   |  | | |___.' /'  .   | /           |  |  |  |  |  | \    '-.____...---. 
+ /  | /  | |  |   |  |  '. `._____.-'/|   |  `.             .'            | |     | |  .'.''| | |  |   |  |/_______.'/ .'.'| |//           |__|  |__|  |__|  `.             .'  
+|   `'.  | |  |   |  |    `-.______ / '---'    `''-...... -'              | |     | | / /   | |_|  |   |  |\_______|/.'.'.-'  /                                `''-...... -'    
+'   .'|  '/|  |   |  |             `                                      | '.    | '.\ \._,\ '/|  |   |  |          .'   \_.'                                                  
+ `-'  `--' '--'   '--'                                                    '---'   '---'`--'  `" '--'   '--'                                                                      -->

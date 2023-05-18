@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="icon" href="images/logo.png"/>
+	<title>DocxGPT - 一款利用人工智慧生成文件的工具</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body class="is-preload">
+
+	<!-- Header -->
+	<header id="header">
+		<div id="index_logo">
+			<img id="index_logo_img" src="images/logo.png" alt="">
+		</div>
+		<h1 id="index_title">DocxGPT</h1>
+		<p>一款利用人工智慧生成文件的工具</p>
+		<br>
+		<h4>請選擇想產生的文件類型</h4>
+	</header>
+
+	<!-- Signup Form -->
+	<select id="doc_type">
+		<option selected value="null">文章類型</option>
+		<option value="1">公告產生</option>
+		<option value="2">閱讀心得</option>
+		<option value="3">心得感想</option>
+	</select>
+	<br>
+	<form id="signup-form" id="doc_type">
+		<input type="password" placeholder="請輸入兌換代碼" id="exchange_code">
+		<input id='create' type="submit" value="下一步">
+	</form>
+	<!-- Footer -->
+	<footer id="footer">
+		<ul class="icons">
+			<li><a href="https://github.com/unclehandsome2007" class="icon brands fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+			<li><a href="mailto:11130216@sssh.tp.edu.tw" class="icon fa-envelope"><span class="label">Email</span></a>
+			</li>
+		</ul>
+		<ul class="copyright">
+			<li>&copy; 10631郭宗佑製作</li>
+			<li>網頁設計: HTML5 UP</li>
+		</ul>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script src="assets/js/main.js"></script>
+	<!-- Import the associated firebase lib which the order is fixed. -->
+	<script defer src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+	<script defer src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+	<script defer src="https://www.gstatic.com/firebasejs/8.0.1/firebase-storage.js"></script>
+	<script defer src="https://www.gstatic.com/firebasejs/8.0.1/firebase-database.js"></script>
+	<!-- Set the firebsae config and initialize it. -->
+	<script defer src="assets/js/init-firebase.js"></script>
+	<script defer src="assets/js/firebase.js"></script>
+	<script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+</body>
+
+</html>

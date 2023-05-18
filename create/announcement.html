@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+
+<head>
+	<link rel="icon" href="images/logo.png" />
+	<title>DocxGPT - 一款利用人工智慧生成文件的工具</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body class="is-preload">
+	<div id="loading_div" style="position: fixed;z-index: 999;"></div>
+	<!-- Wrapper -->
+	<div id="wrapper">
+		<!-- Main -->
+		<div id="index_logo">
+			<img id="index_logo_img" src="images/logo.png" alt="">
+		</div>
+		<h1 id="index_title">DocxGPT</h1>
+		<h3>主題</h3>
+		<input placeholder="簡短大綱(例如: DocxGPT維護中無法使用)" type="text" id="doc_topic">
+		<br>
+		<h3>補充說明(非必填)</h3>
+		<textarea placeholder="請輸入要補充說明的內容(例如: DocxGPT是一個網頁，可以利用Ai生成Word文件的工具)" id="doc_additional"></textarea>
+		<br>
+		<h3>標題</h3>
+		<input placeholder="請輸入這篇文章的標題(例如: DocxGPT使用者注意!)" type="text" id="doc_title">
+		<br>
+		<button id="check_btn" onclick="check()">產生</button>
+		<br><br>
+		<h4 id="token_num">代幣剩餘次數: 讀取中...(一次扣1點)</h4>
+		<h4 id="msg"></h4>
+	</div>
+	<!-- Scripts -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="https://unpkg.com/docx@8.0.1/build/index.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<!-- Import the associated firebase lib which the order is fixed. -->
+	<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-storage.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-database.js"></script>
+	<!-- Set the firebsae config and initialize it. -->
+	<script src="../assets/js/init-firebase.js"></script>
+	<script src="../assets/js/firebase.js"></script>
+	<script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+	<script src="assets/js/script.js"></script>
+	<script src="assets/js/script_announcement.js"></script>
+</body>
+<!--                              _..._                                                                                              .-'''-.                                         
+                          .-'_..._''. .---.                                                                _______             '   _    \                                       
+              _..._     .' .'      '.\|   |      __.....__                  .                      _..._   \  ___ `'.        /   /` '.   \  __  __   ___         __.....__      
+            .'     '.  / .'           |   |  .-''         '.              .'|                    .'     '.  ' |--.\  \      .   |     \  ' |  |/  `.'   `.   .-''         '.    
+           .   .-.   .. '             |   | /     .-''"'-.  `.           <  |                   .   .-.   . | |    \  '     |   '      |  '|   .-.  .-.   ' /     .-''"'-.  `.  
+           |  '   '  || |             |   |/     /________\   \           | |             __    |  '   '  | | |     |  '    \    \     / / |  |  |  |  |  |/     /________\   \ 
+   _    _  |  |   |  || |             |   ||                  |           | | .'''-.   .:--.'.  |  |   |  | | |     |  |    _`.   ` ..' /  |  |  |  |  |  ||                  | 
+  | '  / | |  |   |  |. '             |   |\    .-------------'           | |/.'''. \ / |   \ | |  |   |  | | |     ' .'  .' |  '-...-'`   |  |  |  |  |  |\    .-------------' 
+ .' | .' | |  |   |  | \ '.          .|   | \    '-.____...---.           |  /    | | `" __ | | |  |   |  | | |___.' /'  .   | /           |  |  |  |  |  | \    '-.____...---. 
+ /  | /  | |  |   |  |  '. `._____.-'/|   |  `.             .'            | |     | |  .'.''| | |  |   |  |/_______.'/ .'.'| |//           |__|  |__|  |__|  `.             .'  
+|   `'.  | |  |   |  |    `-.______ / '---'    `''-...... -'              | |     | | / /   | |_|  |   |  |\_______|/.'.'.-'  /                                `''-...... -'    
+'   .'|  '/|  |   |  |             `                                      | '.    | '.\ \._,\ '/|  |   |  |          .'   \_.'                                                  
+ `-'  `--' '--'   '--'                                                    '---'   '---'`--'  `" '--'   '--'                                                                      -->
