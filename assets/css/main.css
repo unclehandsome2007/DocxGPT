@@ -245,7 +245,7 @@ body>* {
 
 @media screen and (max-width: 736px) {
   body {
-    padding: 5em 2em 2em 2em;
+    padding: 0em 2em 2em 2em;
   }
 }
 
@@ -1321,6 +1321,7 @@ button:disabled,
     position: relative;
     width: 50%;
     display: inline-block;
+    margin-bottom: 2%;
   }
 
   input[type="button"] {
@@ -1409,4 +1410,7 @@ button:disabled,
   100% {
     stroke: var(--color1);
   }
+}
+#check_btn{
+  width: 20%;
 }
