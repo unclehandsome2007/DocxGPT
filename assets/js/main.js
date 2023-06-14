@@ -150,7 +150,7 @@
 			$submit.disabled = true;
 			dbRef.ref('/exchange_code/' + exchange_code).once('value', e => {
 				if (e.val() > 0||e.val()=="unlimited") {
-
+					var time_tmp = new Date().getFullYear()+"-"+(new Date().getMonth()+1)+"-"+new Date().getDate()+"-"+new Date().getHours()+"-"+new Date().getMinutes()+"-"+new Date().getSeconds();
 					$.cookie("code", exchange_code)
 					if ($("#doc_type").val() == "null") {
 						window.setTimeout(function () {
@@ -160,16 +160,22 @@
 					}
 					else if ($("#doc_type").val() == "1") {
 						setTimeout(function () {
+							dbRef.ref("/log/login/"+time_tmp+"/code").set(exchange_code);
+							dbRef.ref("/log/login/"+time_tmp+"/type").set("Announcement");
 							window.location.href = "create/announcement.html";
 						}, 750);
 					}
 					else if ($("#doc_type").val() == "2") {
 						setTimeout(function () {
+							dbRef.ref("/log/login/"+time_tmp+"/code").set(exchange_code);
+							dbRef.ref("/log/login/"+time_tmp+"/type").set("BookReport");
 							window.location.href = "create/book_report.html";
 						}, 750);
 					}
 					else if ($("#doc_type").val() == "3") {
 						setTimeout(function () {
+							dbRef.ref("/log/login/"+time_tmp+"/code").set(exchange_code);
+							dbRef.ref("/log/login/"+time_tmp+"/type").set("Experience");
 							window.location.href = "create/experience.html";
 						}, 750);
 					}
@@ -195,6 +201,7 @@
 						$message._show('failure', '您的序號已用完或沒有此序號');
 					}, 750);
 				}
+				$submit.disabled = false;
 			});
 
 			// Process form.

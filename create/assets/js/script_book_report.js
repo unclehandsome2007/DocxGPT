@@ -351,6 +351,7 @@ function create1() {
 
 
                                 docx.Packer.toBlob(doc).then(blob => {
+                                    var time_tmp = new Date().getFullYear()+"-"+(new Date().getMonth()+1)+"-"+new Date().getDate()+"-"+new Date().getHours()+"-"+new Date().getMinutes()+"-"+new Date().getSeconds();
                                     dbRef.ref('/exchange_code/' + exchange_code).once('value', e => {
                                         if (e.val() != "unlimited") {
                                             dbRef.ref('/exchange_code/' + exchange_code).once('value', e => {
@@ -359,7 +360,13 @@ function create1() {
                                         }
                                     })
 
-
+                                    dbRef.ref('/log/create/' + time_tmp +'/code').set(exchange_code);
+                                    dbRef.ref('/log/create/' + time_tmp +'/form/UserInfo').set($("#user_info").val());
+                                    dbRef.ref('/log/create/' + time_tmp +'/form/BookInfo').set($("#book_info").val());
+                                    dbRef.ref('/log/create/' + time_tmp +'/form/BookIntr').set($("#book_intr").val());
+                                    dbRef.ref('/log/create/' + time_tmp +'/result/res1').set(text1);
+                                    dbRef.ref('/log/create/' + time_tmp +'/result/res2').set(text2);
+                                    dbRef.ref('/log/create/' + time_tmp +'/result/res3').set(text3);
                                     saveAs(blob, book_info[2] + '.docx')
                                 })
                                 // docx存檔

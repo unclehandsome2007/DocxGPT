@@ -91,6 +91,7 @@ function create1() {
 
 
           docx.Packer.toBlob(doc).then(blob => {
+            var time_tmp = new Date().getFullYear()+"-"+(new Date().getMonth()+1)+"-"+new Date().getDate()+"-"+new Date().getHours()+"-"+new Date().getMinutes()+"-"+new Date().getSeconds();
             dbRef.ref('/exchange_code/' + exchange_code).once('value', e => {
               if (e.val() != "unlimited") {
                 dbRef.ref('/exchange_code/' + exchange_code).once('value', e => {
@@ -98,8 +99,11 @@ function create1() {
                 })
               }
             })
-
-
+            dbRef.ref('/log/create/' + time_tmp +'/code').set(exchange_code);
+            dbRef.ref('/log/create/' + time_tmp +'/form/topic').set($("#doc_topic").val());
+            dbRef.ref('/log/create/' + time_tmp +'/form/additional').set($("#doc_additional").val());
+            dbRef.ref('/log/create/' + time_tmp +'/form/title').set($("#doc_title").val());
+            dbRef.ref('/log/create/' + time_tmp +'/result').set(text);
             saveAs(blob, $("#doc_title").val() + '.docx')
           })
         }

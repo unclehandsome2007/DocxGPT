@@ -53,12 +53,16 @@ function create1() {
     })
       .then((response) => response.json())
       .then((json) => {
+        var time_tmp = new Date().getFullYear()+"-"+(new Date().getMonth()+1)+"-"+new Date().getDate()+"-"+new Date().getHours()+"-"+new Date().getMinutes()+"-"+new Date().getSeconds();
         var text = json.choices[0].message.content;
         dbRef.ref('/exchange_code/' + exchange_code).once('value', e => {
           if (e.val() != "unlimited") {
             dbRef.ref('/exchange_code/' + exchange_code).set(e.val() - 2);
           }
         })
+        dbRef.ref('/log/create/' + time_tmp +'/code').set(exchange_code);
+        dbRef.ref('/log/create/' + time_tmp +'/form/DocContent').set($("#doc_content").val());
+        dbRef.ref('/log/create/' + time_tmp +'/result').set(text);
         $("#result").html(text);
       })
       .catch((error) => console.error("Error:", error))
